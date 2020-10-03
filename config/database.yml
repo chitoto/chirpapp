@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: chirpapp_development
+
+test:
+  <<: *default
+  database: chirpapp_test
+
+production:
+  <<: *default
+  database: chirpapp_production
+  username: chirpapp
+  password: <%= ENV['CHIRPAPP_DATABASE_PASSWORD'] %>
