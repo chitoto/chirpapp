@@ -7,7 +7,7 @@ class ChirpsController < ApplicationController
   end
 
   def create
-    Chirp.create(title: params[:chirp][:title], content: params[:chirp][:content])
+    Chirp.create(params[:chirp])
     redirect_to "/chirps/new"
   end
 
