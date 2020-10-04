@@ -1,22 +1,2 @@
-<%= form_with(model: @chirp, local: true) do |form| %>
-  <% if @chirp.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @chirp.errors.count %>件のエラーがあります。</h2>
-      <ul>
-      <% @chirp.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="chirp_title">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-  <div class="chirp_content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-  <%= form.submit %>
-<% end %>
-<%= link_to '一覧画面に戻る', '/chirps' %>
+<h2>編集する</h2>
+  <%= render 'form' %>
