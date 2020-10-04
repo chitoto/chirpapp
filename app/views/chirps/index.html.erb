@@ -8,6 +8,7 @@
   <tr>
     <td><%= chirp.title %></td>
     <td><%= chirp.content %></td>
+    <td><%= link_to '詳細を確認する', chirp_path(chirp.id) %></td>
   </tr>
 <% end %>
 </table>

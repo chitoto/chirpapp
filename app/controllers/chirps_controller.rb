@@ -12,6 +12,10 @@ class ChirpsController < ApplicationController
     redirect_to "/chirps/new"
   end
 
+  def show
+    @chirp = Chirp.find(params[:id])
+  end
+
   private
   def chirp_params
     params.require(:chirp).permit(:title, :content)
