@@ -8,8 +8,12 @@ class ChirpsController < ApplicationController
   end
 
   def create
-    Chirp.create(chirp_params)
-    redirect_to "/chirps/new"
+    @chirp = Chirp.new(chirp_params)
+    if @chirp.save
+      redirect_to chirps_path, notice: "作成しました！"
+    else
+      render :new
+    end
   end
 
   def show
