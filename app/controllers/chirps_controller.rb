@@ -20,6 +20,19 @@ class ChirpsController < ApplicationController
     @chirp = Chirp.find(params[:id])
   end
 
+  def edit
+    @chirp = Chirp.find(params[:id])
+  end
+
+  def update
+    @chirp = Chirp.find(params[:id])
+    if @chirp.update(chirp_params)
+      redirect_to chirps_path, notice: "編集しました！"
+    else
+      render :edit
+    end
+  end
+
   private
   def chirp_params
     params.require(:chirp).permit(:title, :content)
