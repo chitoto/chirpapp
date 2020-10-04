@@ -10,10 +10,14 @@ class ChirpsController < ApplicationController
 
   def create
     @chirp = Chirp.new(chirp_params)
-    if @chirp.save
-      redirect_to chirps_path, notice: "作成しました！"
-    else
+    if params[:back]
       render :new
+    else
+      if @chirp.save
+        redirect_to chirps_path, notice: "作成しました！"
+      else
+      render :new
+      end
     end
   end
 
@@ -34,6 +38,11 @@ class ChirpsController < ApplicationController
   def destroy
     @chirp.destroy
     redirect_to chirps_path, notice:"削除しました！"
+  end
+
+  def confirm
+    @chirp = Chirp.new(chirp_params)
+    render :new if @chirp.invalid?
   end
 
   private
