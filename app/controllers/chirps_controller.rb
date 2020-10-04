@@ -1,5 +1,5 @@
 class ChirpsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy]
   def index
     @chirps = Chirp.all
   end
@@ -29,6 +29,11 @@ class ChirpsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @chirp.destroy
+    redirect_to chirps_path, notice:"削除しました！"
   end
 
   private
