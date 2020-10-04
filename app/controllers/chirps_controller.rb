@@ -1,4 +1,5 @@
 class ChirpsController < ApplicationController
+  before_action :set_blog, only: [:show, :edit, :update]
   def index
     @chirps = Chirp.all
   end
@@ -17,15 +18,12 @@ class ChirpsController < ApplicationController
   end
 
   def show
-    @chirp = Chirp.find(params[:id])
   end
 
   def edit
-    @chirp = Chirp.find(params[:id])
   end
 
   def update
-    @chirp = Chirp.find(params[:id])
     if @chirp.update(chirp_params)
       redirect_to chirps_path, notice: "編集しました！"
     else
@@ -36,5 +34,9 @@ class ChirpsController < ApplicationController
   private
   def chirp_params
     params.require(:chirp).permit(:title, :content)
+  end
+
+  def set_blog
+    @chirp = Chirp.find(params[:id])
   end
 end
