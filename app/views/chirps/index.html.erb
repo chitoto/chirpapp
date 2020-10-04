@@ -9,8 +9,8 @@
     <td><%= chirp.title %></td>
     <td><%= chirp.content %></td>
     <td><%= link_to '詳細を確認する', chirp_path(chirp.id) %></td>
-    <td><%= link_to "編集する", edit_chirp_path(chirp.id) %></td>
-    <td><%= link_to '削除する', chirp_path(chirp.id), method: :delete %></td>
+    <td><%= link_to "編集する", edit_chirp_path(chirp.id), data: { confirm: '本当に編集していいですか？' } %></td>
+    <td><%= link_to '削除する', chirp_path(chirp.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>
 <% end %>
 </table>
