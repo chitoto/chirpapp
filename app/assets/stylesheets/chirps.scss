@@ -1,3 +1,34 @@
-// Place all the styles related to the chirps controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+table{
+  table-layout:fixed;
+  width:400px;
+}
+
+td{
+  float: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.main_text{
+  overflow-wrap : break-word;
+  width: 100%;
+  height: 100px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+
+}
+
+.chirp_content{
+  width: 400px;
+  height: 100px;
+}
+
+button{
+  background-color: #1DA1F2;
+  border-radius: 5px;
+  color: #fff;
+}
+
+button span a{
+  color: #fff;
+}

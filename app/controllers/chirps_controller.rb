@@ -47,7 +47,7 @@ class ChirpsController < ApplicationController
 
   private
   def chirp_params
-    params.require(:chirp).permit(:title, :content)
+    params.require(:chirp).permit(:content)
   end
 
   def set_blog

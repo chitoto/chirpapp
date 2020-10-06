@@ -1,0 +1,18 @@
+.groval-nav{
+  background-color: #1DA1F2;
+}
+nav a{
+  color: #fff;
+}
+
+footer{
+  height: 70px;
+  display: fixed;
+  bottom: 0;
+  background-color: #1DA1F2;
+  text-align: center;
+}
+footer p{
+  vertical-align: middle;
+margin-top: 10px;
+}

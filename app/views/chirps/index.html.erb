@@ -1,4 +1,7 @@
 <h1>一覧</h1>
+<button type="button" class="btn btn-lg">
+  <span class="glyphicon glyphicon-pencil" aria-hidden="true"><%= link_to '新しく投稿する', new_chirp_path %></span>
+</button>
 <p><%= notice %></p>
 <table>
   <tr>
@@ -6,11 +9,14 @@
   </tr>
   <% @chirps.each do |chirp| %>
     <tr>
-      <td><%= chirp.content %></td>
-      <td><%= link_to '詳細を確認する', chirp_path(chirp.id) %></td>
-      <td><%= link_to "編集する", edit_chirp_path(chirp.id), data: { confirm: '本当に編集していいですか？' } %></td>
-      <td><%= link_to '削除する', chirp_path(chirp.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+      <td class="main_text"><%= chirp.content %></td>
+    </tr>
+    <tr>
+      <td>
+        <button type="button" name="button"><span class="glyphicon glyphicon-list alt" aria-hidden="true"><%= link_to '詳細', chirp_path(chirp.id) %></span></button>
+        <button type="button" name="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"><%= link_to "編集", edit_chirp_path(chirp.id), data: { confirm: '本当に編集していいですか？' } %></span></button>
+        <button type="button" name="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"><%= link_to '削除', chirp_path(chirp.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></span></button>
+      </td>
     </tr>
   <% end %>
 </table>
-<%= link_to '新しく投稿する', new_chirp_path %>
