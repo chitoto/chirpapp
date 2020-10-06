@@ -2,17 +2,15 @@
 <p><%= notice %></p>
 <table>
   <tr>
-    <th>タイトル</th>
     <th>内容</th>
   </tr>
-<% @chirps.each do |chirp| %>
-  <tr>
-    <td><%= chirp.title %></td>
-    <td><%= chirp.content %></td>
-    <td><%= link_to '詳細を確認する', chirp_path(chirp.id) %></td>
-    <td><%= link_to "編集する", edit_chirp_path(chirp.id), data: { confirm: '本当に編集していいですか？' } %></td>
-    <td><%= link_to '削除する', chirp_path(chirp.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
-  </tr>
-<% end %>
+  <% @chirps.each do |chirp| %>
+    <tr>
+      <td><%= chirp.content %></td>
+      <td><%= link_to '詳細を確認する', chirp_path(chirp.id) %></td>
+      <td><%= link_to "編集する", edit_chirp_path(chirp.id), data: { confirm: '本当に編集していいですか？' } %></td>
+      <td><%= link_to '削除する', chirp_path(chirp.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+    </tr>
+  <% end %>
 </table>
 <%= link_to '新しく投稿する', new_chirp_path %>
